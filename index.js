@@ -1,6 +1,10 @@
+#!/usr/bin/env node
+
 import c from './services/logger.servise.js'
 import scenes from './services/scenes.service.js'
 import inquirer from 'inquirer'
+import commander from 'commander'
+
 
 // log service
 // c.info(123)
@@ -12,7 +16,7 @@ import inquirer from 'inquirer'
 //   b: '123'
 // })
 
-// food -c  СОЗДАНИЕ ИЛИ ПЕРЕЗАПИСЬ КОНФИГА
+// food c  СОЗДАНИЕ ИЛИ ПЕРЕЗАПИСЬ КОНФИГА
 // Ввод роста
 // Ввод веса
 // Ввод возраста
@@ -29,9 +33,13 @@ async function scene(array) {
   return result
 }
 
-async function init() {
-  const config = await scene(scenes.config)
-  c.obj('CONFIG', config)
-}
+commander
+    .command('config')
+    .alias('c')
+    .description('Настройка данных о себе')
+    .action(async function () {
+      const config = await scene(scenes.config)
+      c.obj('CONFIG', config)
+    });
 
-init()
+commander.parse(process.argv);
