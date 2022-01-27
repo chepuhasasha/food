@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import c from './services/logger.servise.js'
-import scenes from './services/scenes.service.js'
-import inquirer from 'inquirer'
+import scene from './services/scenes.service.js'
 import commander from 'commander'
 
 
@@ -23,22 +22,12 @@ import commander from 'commander'
 // Расчет необходимых вешеств
 // Запись конфига
 
-async function scene(array) {
-  const result = {}
-  for (const q of array) {
-    await inquirer.prompt(q).then(answer => {
-      result[q.name] = answer[q.name]
-    })
-  }
-  return result
-}
-
 commander
     .command('config')
     .alias('c')
     .description('Настройка данных о себе')
     .action(async function () {
-      const config = await scene(scenes.config)
+      const config = await scene.start('config')
       c.obj('CONFIG', config)
     });
 
