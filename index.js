@@ -23,12 +23,12 @@ import commander from 'commander'
 // Запись конфига
 
 commander
-    .command('config')
-    .alias('c')
-    .description('Настройка данных о себе')
-    .action(async function () {
-      const config = await scene.start('config')
-      c.obj('CONFIG', config)
-    });
+  .command('config')
+  .alias('c')
+  .description('Настройка данных о себе')
+  .action(async function () {
+    const config = await scene.start('config')
+    c.obj('CONFIG', config)
+  });
 
 commander.parse(process.argv);
