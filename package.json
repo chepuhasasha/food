@@ -1,0 +1,24 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sashachepuha/food.git"
+  },
+  "author": "Sergey Batukov <sashachepuha@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sashachepuha/food/issues"
+  },
+  "homepage": "https://github.com/sashachepuha/food#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "inquirer": "^8.2.0"
+  }
+}
